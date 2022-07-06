@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AD Prediction</title>
+    <link rel="stylesheet" type="text/css" href="../static/src/format.css">
+</head>
+<style type="text/css">
+    .reference{
+            text-align: right;
+            font-size: small;
+        }
+
+    .pic-label{
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .pic{
+        width: 100%;
+        height: 70%;
+    }
+</style>
+<body>
+<div id="nav">
+    <div class="nav-block" id="home" onclick="window.location.href='http://127.0.0.1:5000/Home'">Home</div>
+    <div class="nav-block" id="data" onclick="window.location.href='http://127.0.0.1:5000/DataViewer'">Data Viewer</div>
+    <div class="nav-block" id="ADpred" onclick="window.location.href='http://127.0.0.1:5000/ADPrediction'">About AD</div>
+    <div class="nav-block" id="PDpred" onclick="window.location.href='http://127.0.0.1:5000/PDPrediction'">About PD</div>
+</div>
+
+<div id="jumper">
+    <div class="jump-block" onclick="jump('intro')">简介</div>
+    <div class="jump-block" onclick="jump('def')">疾病定义</div>
+    <div class="jump-block" onclick="jump('clinical')">临床症状</div>
+    <div class="jump-block" onclick="jump('diagnose')">诊断方法</div>
+    <div class="jump-block" onclick="jump('medication')">药物与治疗</div>
+    <div class="jump-block" onclick="jump('related')">相关疾病</div>
+    <div class="jump-block" onclick="jump('pred-section')">疾病预测工具</div>
+</div>
+
+<div class="title">阿尔兹海默症简介与预测</div>
+
+<div class="text">
+    <img align="center" src="../static/img/AD-1.jpg" class="pic">
+    <div class="pic-label">比较正常（左）和阿尔茨海默病（右）患者的脑部</div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="intro">疾病介绍</span>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阿尔茨海默病（Alzheimer's disease，AD）是一种与年龄有关的、不可逆的脑部疾病，是65岁及以上人群中最常见的痴呆原因。
+        起初，人们会出现记忆丧失和混乱，这可能被误认为是有时与正常老化相关的各种记忆变化。然而，AD的症状会逐渐导致行为性格改变，决策和语言能力等认知能力下降，以及识别家人和朋友的问题，最终会导致精神功能的严重丧失。AD表现出的损失与大脑中某些神经元之间的连接不断恶化崩溃并最终死亡有关。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在大脑中，有三个主要标志与AD的疾病过程有关:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）淀粉样斑块（Amyloid plaques），它是由一种叫做β-淀粉样肽的蛋白质碎片与其他蛋白质、
+        神经元的残留物和其他神经细胞的碎片混合而成。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）神经纤维缠结（Neurofibrillary tangles，NFTs），是神经元内tau蛋白的不正常集合。
+        健康的神经元需要正常的tau蛋白，而在AD中tau蛋白会聚集在一起，导致神经元不能正常运作并最终死亡。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）负责记忆和学习的神经元之间的连接丧失 （Loss of connections between neurons responsible for memory and learning）。
+        当神经元失去与其他神经元的连接时，它们就无法生存。随着整个大脑的神经元死亡，受影响的区域开始萎缩或缩小。到了AD的最后阶段，损害是非常广泛的，脑组织已经明显萎缩。<br>
+    </p>
+    <div class="reference"><a href="https://www.ninds.nih.gov/health-information/disorders/alzheimers-disease" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="def">疾病定义</span>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该疾病是一种滔蛋白病变（tauopathy），以记忆力减退、精神错乱、情绪不稳定和智力逐渐丧失为特征，并导致进行性记忆丧失、思维障碍、迷失方向以及人格和情绪开始变化，在晚期病例中导致认知和身体功能的深度下降，在组织学上以脑神经元的退化为标志，特别是在大脑皮层，并以含有β-淀粉样蛋白的神经纤维缠结和斑块的存在为标志。</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A tauopathy that is characterized by memory lapses, confusion, emotional instability and progressive loss of mental ability and results in progressive memory loss, impaired thinking, disorientation, and changes in personality and mood starting and leads in advanced cases to a profound decline in cognitive and physical functioning and is marked histologically by the degeneration of brain neurons especially in the cerebral cortex and by the presence of neurofibrillary tangles and plaques containing beta-amyloid.</p>
+    <div class="reference"><a href="https://disease-ontology.org/?id=DOID:10652" target="_blank">资料来源</a></div>
+
+</div>
+
+<div class="text">
+    <span class="subtitle" id="clinical">临床症状</span>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;神经系统的中枢神经系统（Neurologic Central Nervous System）：<br>
+        帕金森症（parkinsonism）、先天性和老年性痴呆（presenile and senile dementia）、长束体征（long tract signs）、由无序的微管组成的神经纤维缠结（neurofibrillary tangles composed of disordered microtubules）。</p>
+    <div class="reference"><a href="https://omim.org/entry/104300#clinicalFeatures" target="_blank">资料来源</a></div>
+
+</div>
+
+<div class="text">
+    <span class="subtitle" id="diagnose">诊断方法</span>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阿尔茨海默病的诊断一般透过病史收集和行为观察获得。临床医师可透过观察患者神经学及神经心理学上的特征，并排除其他诊断来佐证诊断。一些医学影像技术，可以协助排除其他大脑病变或痴呆症亚型。此外，医学影像也可以用于预测从轻微认知失调到阿尔茨海默病的转变。
+        神经心理学评估（包括记忆测试）可以进一步鉴别疾病状态，医学组织已经为临床医师建立诊断标准以简化及标准化诊断程序。阿尔茨海默病最准确的诊断方法为尸体病理解剖，直接取得脑组织，经由组织学免疫染色法进行确认诊断。</p>
+    <p>
+        <span style="font-weight: bold">诊断标准</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美国神经与沟通疾患及中风研究院（NINCDS，现改名为美国神经与中风研究院）及阿尔茨海默病及相关疾病协会（ADRDA）于1984年制定了NINCDS-ADRDA阿尔茨海默病诊断标准，为目前最常用的诊断标准之一，最新一版于2007年更新。临床诊断标准包含认知功能损害、疑似痴呆症状，并经由神经心理学评估确认。
+        脑组织的显微镜检可以提供阿尔茨海默病的组织病理学确认诊断。上述的诊断标准在借由组织病理学进行评估后，显示该标准的信度及效度都不错。阿尔茨海默病最常损害的八个智能区块为记忆、语言、知觉、注意力、动作技能、定向力、问题解决能力、执行能力等。这些问题在NINCDS-ADRDA诊断标准及美国精神医学学会发行的《精神疾病诊断与统计手册》（DSM-IV-TR）皆有提到。<br><br>
+
+        <span style="font-weight: bold">检测技术</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;神经心理学筛检可以协助阿尔茨海默病的诊断。在此试验中，受试者会被要求在另一张纸画出图中的图形。另外也可能会请受试者记住单词、阅读，或是递减数字。
+        简短智能测验（MMSE）等神经心理学检查常被用于评估认知功能障碍，以利于后续诊断。若要取得更可信的结果，可以进行更全面的测试，特别是在疾病初期的患者。除非有明显的认知功能障碍，神经学检察结果在疾病初期一般会呈现正常，可能无法与其他疾病做出鉴别，包含其他原因造成的痴呆症。
+        进一步的神经学检查对于阿尔茨海默病的鉴别诊断相当重要，与家人会谈也有助于评估病情。主要照护人能够提供患者日常活动功能的重要资讯，以及病人心智功能下降的情形。由于患者通常自己无法查觉自身的异状，因此旁观者的观点对于疾病的评估相当重要。但在痴呆症初期时，家人通常也无法察觉病人的症状，而无法提供医师准确的资讯。
+        辅助性检查可以提供一些额外资讯，以利排除其他诊断。血液检查也可以协助排除阿尔茨海默病以外的诊断，偶见有些病因是可以治愈的。常见的血检项目包含甲状腺功能测试、维生素B12、梅毒检测、代谢性疾病检查（如肾功能检查、电解质水平，以及糖尿病检查）、重金属水平，以及贫血等等。另外也必须谵妄的可能性。
+        针对抑郁症的心理测验也建议进行，因为阿尔茨海默病常同时伴随抑郁症状，也是认知功能损伤的早期症状之一，甚至是原因。<br><br>
+
+        <span style="font-weight: bold">影像学</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电脑断层扫描（CT）、核磁共振成像（MRI）、单光子电脑断层摄影（SPECT），和正子电脑断层摄影（PET）等高阶医学影像技术，可以协助排除脑膜瘤、硬膜下出血等其他脑部疾病或痴呆症亚型。此外，医学影像也可以用于预测从轻微认知失调到阿尔茨海默病的转变。海马回计量（Hippocampal volumetry）的诊断价值或许较高，但大多数医院不易取得。目前核磁共振已经有影像评分系统，可以协助识别皮质萎缩的区域。
+        C-PIB正子照影（C-PIB PET）在疾病初期的准确率不高，因此不建议用于早期诊断，或预测轻度知能障碍患者进展到阿尔茨海默病的机会。¹⁸F-FDG正子照影（¹⁸F-FDG PET）在预测阿尔茨海默病的发生机会上也没有循证支持。
+        目前用于阿尔茨海默病的放射性示踪剂中，针对检测大脑中的类淀粉样斑块（可能是阿尔茨海默氏症的生物标记），美国FDA核准的药物有florbetapir F18，flutemetamol F18和florbetabenF18。针对tau20，它们都用于检测大脑中的淀粉样β斑块（可能是阿尔茨海默氏症的生物标记）。
+        淀粉样蛋白的PET诊断药物目前已有3个药物被FDA核准，但在tau蛋白病变中，Tauvid是第一个可以诊断tau蛋白病变的药物。
+        目前全球医学界认为阿尔茨海默病病患，主要是在大脑中发现有tau蛋白以及类淀粉样蛋白(amyloid)堆积，并且认为这两种蛋白质可能是造成阿尔茨海默病的病变原因。目前FDA针对淀粉样蛋白的PET诊断药物已有3个药物(florbetapir F18，flutemetamol F18和florbetaben F18)被核准，但在tau蛋白病变中，flortaucipir F18 (Tauvid)是第一个可以诊断tau蛋白病变的PET药物。<br><br>
+    </p>
+    <div class="reference"><a href="https://zh.wikipedia.org/wiki/阿茲海默症#診斷" target="_blank">资料来源</a></div>
+
+</div>
+
+<div class="text">
+    <span class="subtitle" id="medication">药物与治疗</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前还没有药物可以治愈AD。然而，美国食品和药物管理局（FDA）已经批准药物用于治疗AD症状。这些药物通过保持思维、记忆或说话技能帮助个人进行日常生活活动。他们还可以帮助解决与AD相关的一些行为和人格变化。然而，它们不会停止或逆转AD，而且似乎只能帮助个人几个月到几年。Donepezil （Aricept）、rivastigmine（Exelon）和galantamine（Razadyne）被用来治疗轻度到中度的AD症状。多奈哌齐最近也被批准用于治疗严重的AD。药物memantine（Namenda）被用于治疗中度至重度AD症状。2021年6月，美国食品和药物管理局批准了药物educanumab（Adulhelm），它可以减少有害的淀粉样β斑块的积聚，这些斑块损害并杀死神经元及其连接。
+    </p>
+    <div class="reference"><a href="https://www.ninds.nih.gov/health-information/disorders/alzheimers-disease" target="_blank">资料来源</a></div>
+
+
+</div>
+
+<div class="text">
+    <span class="subtitle" id="related">相关疾病</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;与阿尔茨海默病相关的20大疾病网络：
+        <div class="text">
+            <img align="center" src="../static/img/AD-2.jpg" class="pic">
+            <div class="pic-label">疾病网络示意图</div>
+        </div>
+    </p>
+    <div class="reference"><a href="https://www.malacards.org/card/alzheimer_disease_familial_1" target="_blank">资料来源</a></div>
+
+</div>
+
+<div class="text">
+    <span class="subtitle" id="pred-section">疾病预测</span>
+    <div id="pred-box">
+        {% if model and model != '- Select Model'%}
+            <p>模型选择：<span style="font-weight: bolder; font-size: 20px">{{ model }}</span></p>
+        {% else %}
+        {% endif %}
+        {% if result %}
+            <p>预测结果：
+                {% if result == '低风险患病' %}
+                    <span style="font-weight: bolder; font-size: 20px;color: forestgreen">{{ result }}</span>
+                {% else %}
+                    <span style="font-weight: bolder; font-size: 20px; color: crimson">{{ result }}</span>
+                {% endif %}
+            </p>
+        {% else %}
+        {% endif %}
+        <form method="post" action="ADPrediction">
+            <label class="input-label">选择要使用的预测模型：</label>
+            <select id="model" class="usr-input" style="height: 25px" name="model-selection">
+                <option disabled selected>- Select Model</option>
+                {% for op in models %}
+                    <option value="{{ op }}">{{ op }}</option>
+                {% endfor %}
+            </select><br>
+            <label class="input-label">性别:</label>
+            <select name="param1" class="usr-input" style="height: 25px">
+                <option disabled selected>- Select Gender</option>
+                <option value="0">女</option>
+                <option value="1">男</option>
+            </select><br>
+            <label class="input-label">年龄:</label> <input type="text" name="param2" class="usr-input" value="{{ param2 }}"/><br>
+            <label class="input-label">受教育程度:</label> <input type="text" name="param3" class="usr-input" value="{{ param3 }}"/><br>
+            <label class="input-label">社会经济地位:</label> <input type="text" name="param4" class="usr-input" value="{{ param4 }}"/><br>
+            <label class="input-label">MMSE:</label> <input type="text" name="param5" class="usr-input" value="{{ param5 }}"/><br>
+            <label class="input-label">eTIV:</label> <input type="text" name="param6" class="usr-input" value="{{ param6 }}"/><br>
+            <label class="input-label">nWBV:</label> <input type="text" name="param7" class="usr-input" value="{{ param7 }}"/><br>
+            <label class="input-label">ASF:</label> <input type="text" name="param8" class="usr-input" value="{{ param8 }}"/><br>
+
+            <input type="submit" value="Predict" id="pred-button"/>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    var jump = function (location_id) {
+        window.scrollTo(0, document.getElementById(location_id).offsetTop - document.getElementById("nav").scrollHeight)
+    }
+    if ("{{ result }}")
+        jump("pred-section")
+</script>

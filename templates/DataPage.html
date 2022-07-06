@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Viewer</title>
+    <link rel="stylesheet" type="text/css" href="../static/src/format.css">
+
+</head>
+<style>
+    body{
+        background-color: #d4f1ff;
+        padding: 8% 10% 5% 10%;
+        text-align: center;
+    }
+
+    .content{
+        font-size: medium;
+        color: #254d60;
+        align-content: center;
+        text-align: center;
+        padding: 1%;
+        margin: 1%;
+        overflow-x: scroll;
+        width: 100%;
+        border: #83b7b7 2px dashed;
+        border-radius: 5px;
+    }
+
+    .content::-webkit-scrollbar-track{
+        opacity: 0;
+    }
+
+    .text{
+        color: #142b35;
+        text-align: left;
+        padding: 1%;
+        line-height: 2rem;
+    }
+
+    .title{
+        font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        font-weight: bolder;
+        font-size: 30px;
+        color: #89adc4;
+        text-align: left;
+        text-shadow: 3px 3px 2px #dadddd;
+    }
+
+    .subtitle{
+        font-size: large;
+        font-weight: bold;
+        color: #43535d;
+        text-shadow: 2px 2px 1px #c3cbca;
+    }
+
+    #jumper{
+        background-color: #adbfff;
+        display: block;
+        position: fixed;
+        top:250px;
+        left: 0px;
+        width: 8%;
+        border:whitesmoke solid 2px;
+        border-bottom: whitesmoke solid 1px;
+    }
+
+    .jump-block{
+        font-weight: bold;
+        color: #201043;
+        background-color: #adbfff;
+        text-align: center;
+        padding: 10% 20%;
+        border-bottom: whitesmoke solid 2px;
+    }
+    .jump-block:hover{
+        background-color: #6982c8;
+        color: whitesmoke;
+    }
+
+    #nav{
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+        position: fixed;
+        padding: 0%;
+        width: 100%;
+        background-color: #67c0e2;
+    }
+
+    .nav-block{
+        color: #254d60;
+        font-family: Helvetica;
+        font-weight: bold;
+        background-color: #67c0e2;
+        display: inline-block;
+        margin: 0.6% 0%;
+        padding: 1% 0%;
+        width:20%;
+        text-align: center;
+    }
+
+    .nav-block:hover{
+        color: #bae8ff;
+    }
+
+
+    .db{
+        font-size: small;
+        border: #142b35 2px solid;
+        border-radius: 5px;
+        border-collapse: collapse;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .db th{
+        border: #142b35 1px solid;
+        padding: 8px;
+        text-align: center;
+        background-color: #92d0e3;
+    }
+    .db td{
+        border: #142b35 1px solid;
+        padding: 8px;
+        text-align: center;
+    }
+    .db td:hover{
+        background-color: #89adc4;
+        color: whitesmoke;
+    }
+
+</style>
+
+<body>
+
+<div id="nav">
+    <div class="nav-block" id="home" onclick="window.location.href='http://127.0.0.1:5000/Home'">Home</div>
+    <div class="nav-block" id="data" onclick="window.location.href='http://127.0.0.1:5000/DataViewer'">Data Viewer</div>
+    <div class="nav-block" id="ADpred" onclick="window.location.href='http://127.0.0.1:5000/ADPrediction'">About AD</div>
+    <div class="nav-block" id="PDpred" onclick="window.location.href='http://127.0.0.1:5000/PDPrediction'">About PD</div>
+</div>
+<div id="jumper">
+    <div class="jump-block" onclick="jump('ad')">To AD</div>
+    <div class="jump-block" onclick="jump('pd')">To PD</div>
+</div>
+
+<span class="title" id="ad">阿尔兹海默症数据集</span>
+<div class="text">
+    <span class="subtitle">数据集简介：</span><br>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目的数据来源为Kaggle托管的整理后OASIS-2数据集，
+    名称为<a href="https://www.kaggle.com/code/hyunseokc/detecting-early-alzheimer-s/data" target="_blank">DETECTING EARLY ALZHEIMER'S</a>。
+    主要指标有<span style="font-weight: bold">病人基本信息</span>和<span style="font-weight: bold">相关临床测试打分</span>。<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OASIS-2是“开放获取成像系列研究”的第二版本，旨在让科学界免费获得神经成像数据集。
+    通过编译和自由分发这个由Knight ADRC及其附属研究生成的多模态数据集，其开发目的为促进基础和临床神经科学的未来发现。
+    OASIS-Cross-sectional数据集 (Marcus et al, 2007) 和OASIS-Longitudinal数据集 (Marcus et al, 2010)之前发布的数据已被用于假设驱动的数据分析、神经解剖图谱的开发和分割算法的开发。
+    OASIS-2是一个针对正常衰老和阿尔茨海默病的纵向神经成像、临床、认知和生物标志物数据集。</p>
+    <span class="subtitle">数据展示：</span>
+</div>
+
+<div class="content">
+    <table class="db">
+        <tr>
+            <th>Index</th>
+            <th>Patient_ID</th>
+            <th>MRI_ID</th>
+            <th>visit</th>
+            <th>MR_Delay</th>
+            <th>sex</th>
+            <th>age</th>
+            <th>handUsage</th>
+            <th>eduYear</th>
+            <th>scioEco</th>
+            <th>MMSE</th>
+            <th>CDR</th>
+            <th>eTIV</th>
+            <th>nWBV</th>
+            <th>ASF</th>
+            <th>disorderRank</th>
+        </tr>
+        {% for n, entity in AD_data.items() %}
+        <tr>
+            <td>{{ n }}</td>
+            {% for prop in entity %}
+                <td>{{ prop }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+<div class="text">
+    <span class="subtitle">参考文献：</span><br>
+    <p><span style="font-style: italic;font-size: smaller;line-height: 0rem">Daniel S. Marcus, Anthony F. Fotenos, John G. Csernansky, John C. Morris, Randy L. Buckner;
+    Open Access Series of Imaging Studies: Longitudinal MRI Data in Nondemented and Demented Older Adults.
+    J Cogn Neurosci 2010; 22 (12): 2677–2684.doi: <a href="https://doi.org/10.1162/jocn.2009.21407" target="_blank">https://doi.org/10.1162/jocn.2009.21407</a></span><br></p>
+</div><br><br>
+
+
+<span class="title" id="pd">帕金森病音频数据集</span>
+<div class="text">
+    <span class="subtitle">数据集简介：</span><br>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p><br>
+    <span class="subtitle">数据展示：</span>
+</div>
+<div class="content">
+    <table class="db">
+        <tr>
+            <th>Sample</th>
+            <th>MDVP_Fhi</th>
+            <th>MDVP_Flo</th>
+            <th>MDVP_Jitter_perc</th>
+            <th>MDVP_Jitter_abs</th>
+            <th>MDVP_RAP</th>
+            <th>MDVP_PPQ</th>
+            <th>Jitter_DDP</th>
+            <th>MDVP_Shimmer</th>
+            <th>MDVP_Shimmer_dB</th>
+            <th>Shimmer_APQ3</th>
+            <th>Shimmer_APQ5</th>
+            <th>MDVP_APQ</th>
+            <th>Shimmer_DDA</th>
+            <th>...</th>
+            <th>status</th>
+
+        </tr>
+        {% for n, entity in PD_data.items() %}
+        <tr>
+            <td>{{ n }}</td>
+            {% for prop in entity %}
+                <td>{{ prop }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+<div class="text">
+    <span class="subtitle">参考文献：</span>
+    <p><span style="font-style: italic;font-size: smaller;line-height: 0rem">Little MA, McSharry PE, Roberts SJ, Costello DA, Moroz IM.
+        Exploiting nonlinear recurrence and fractal scaling properties for voice disorder detection.
+        Biomed Eng Online. 2007 Jun 26;6:23. doi: 10.1186/1475-925X-6-23. PMID: 17594480; PMCID: PMC1913514.</p>
+</div>
+</body>
+
+<script type="text/javascript">
+    var jump = function (location_id){
+        window.scrollTo(0, document.getElementById(location_id).offsetTop-document.getElementById("nav").scrollHeight)
+    }
+</script>
+</html>

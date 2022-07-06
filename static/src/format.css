@@ -1,0 +1,171 @@
+        body{
+            background-color: #d4f1ff;
+            padding: 5% 20% 5% 20%;
+        }
+        .title{
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+            font-weight: bolder;
+            font-size: 35px;
+            color: #849fc1;
+            text-align: center;
+            text-shadow: 3px 3px 2px #dadddd;
+            padding: 3% 0%;
+        }
+
+        .subtitle{
+            font-size: large;
+            font-weight: bold;
+            color: #43535d;
+            text-shadow: 2px 2px 1px #c3cbca;
+        }
+
+        .text{
+            color: #142b35;
+            text-align: left;
+            padding: 1%;
+            line-height: 2rem;
+            align-items: center;
+        }
+
+        #jumper{
+            background-color: #adbfff;
+            display: block;
+            position: fixed;
+            top:20%;
+            left: 0px;
+            width: 12%;
+            border:whitesmoke solid 2px;
+            border-bottom: whitesmoke solid 1px;
+        }
+
+        .jump-block{
+            font-weight: bold;
+            color: #201043;
+            background-color: #adbfff;
+            text-align: center;
+            padding: 10% 15%;
+            border-bottom: whitesmoke solid 2px;
+        }
+        .jump-block:hover{
+            background-color: #6982c8;
+            color: whitesmoke;
+        }
+
+        #nav{
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            position: fixed;
+            padding: 0%;
+            width: 100%;
+            background-color: #67c0e2;
+        }
+
+        .nav-block{
+            color: #254d60;
+            font-family: Helvetica;
+            font-weight: bold;
+            background-color: #67c0e2;
+            display: inline-block;
+            margin: 0.6% 0%;
+            padding: 1% 0%;
+            width:20%;
+            text-align: center;
+        }
+
+        .nav-block:hover{
+            color: #bae8ff;
+        }
+
+        .input-label{
+            font-family: Helvetica;
+            font-weight: bold;
+            color: #142b35;
+        }
+
+        .usr-input{
+            border: grey 2px solid;
+            border-radius: 4px;
+            height: 20px;
+            background-color: #d4f1ff;
+            margin: 1% 0%;
+        }
+
+        .usr-input:focus{
+            background-color: #a8d0e3;
+        }
+
+        #pred-box{
+            margin: 1% 10%;
+            padding: 2% 0% 1% 0%;
+            border: #6982c8 2px dashed;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        #pred-button{
+            background-color: #c1d1f8;
+            border: #434a73 2px solid;
+            border-radius: 5px;
+            padding: 2% 5%;
+            margin-top: 4%;
+            margin-bottom: 3%;
+            font-weight: bold;
+            color: #50578c;
+        }
+
+        #pred-button:hover{
+            background-color: #8696cf;
+            border-color: #c1d1f8;
+            color: #f3f3f3;
+        }
+
+        .reference{
+            text-align: right;
+            font-size: small;
+        }
+
+        .pic-label{
+            text-align: center;
+            font-size: 14px;
+        }
+
+
+
+        .content{
+        font-size: medium;
+        color: #254d60;
+        align-content: center;
+        text-align: center;
+        padding: 1%;
+        margin: 1%;
+        overflow-x: scroll;
+        width: 100%;
+        border: #83b7b7 2px dashed;
+        border-radius: 5px;
+        }
+
+    .db{
+        font-size: small;
+        border: #142b35 2px solid;
+        border-radius: 5px;
+        border-collapse: collapse;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .db th{
+        border: #142b35 1px solid;
+        padding: 8px;
+        text-align: center;
+        background-color: #92d0e3;
+    }
+    .db td{
+        border: #142b35 1px solid;
+        padding: 8px;
+        text-align: center;
+    }
+    .db td:hover{
+        background-color: #89adc4;
+        color: whitesmoke;
+    }

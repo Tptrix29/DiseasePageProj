@@ -1,0 +1,55 @@
+-- IF(`SELECT COUNT(*) FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'NeuorDisease'`)
+--     DROP DATABASE NeuorDisease;
+
+CREATE DATABASE NeuorDisease;
+
+USE NeuorDisease;
+-- DROP TABLE ADPred;
+CREATE TABLE ADPred(
+	EID INT UNSIGNED AUTO_INCREMENT,
+  SBJ_ID CHAR(9) NOT NULL,
+  MRI_ID CHAR(13) NOT NULL,
+  visit CHAR(1),
+  MR_Delay SMALLINT,
+  sex ENUM('F', 'M') DEFAULT NULL,
+  age SMALLINT,
+  handUsage ENUM('L', 'R') DEFAULT NULL,
+  eduYear SMALLINT,
+  scioEco FLOAT,
+  MMSE FLOAT,
+  CDR FLOAT,
+  eTIV FLOAT,
+  nWBV FLOAT,
+  ASF FLOAT,
+  disorderRank VARCHAR(11),
+  PRIMARY KEY(EID)
+);
+
+-- DROP TABLE PDAudioPred;
+CREATE TABLE PDAudioPred(
+  name CHAR(14),
+  MDVP_Fo FLOAT,
+  MDVP_Fhi FLOAT,
+  MDVP_Flo FLOAT,
+  MDVP_Jitter_perc FLOAT,
+  MDVP_Jitter_abs FLOAT,
+  MDVP_RAP FLOAT,
+  MDVP_PPQ FLOAT,
+  Jitter_DDP FLOAT,
+  MDVP_Shimmer FLOAT,
+  MDVP_Shimmer_dB FLOAT,
+  Shimmer_APQ3 FLOAT,
+  Shimmer_APQ5 FLOAT,
+  MDVP_APQ FLOAT,
+  Shimmer_DDA FLOAT,
+  NHR FLOAT,
+  HNR FLOAT,
+  RPDE FLOAT,
+  DFA FLOAT,
+  spread1 FLOAT,
+  spread2 FLOAT,
+  D2 FLOAT,
+  PPE FLOAT,
+  stats FLOAT,
+  PRIMARY KEY(name)
+);

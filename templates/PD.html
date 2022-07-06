@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PD Prediction</title>
+    <link rel="stylesheet" type="text/css" href="../static/src/format.css">
+</head>
+<style type="text/css">
+    .reference{
+            text-align: right;
+            font-size: small;
+        }
+
+    .pic-label{
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .pic{
+        display: flex;
+        width: 100%;
+        height: 70%;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<div id="nav">
+    <div class="nav-block" id="home" onclick="window.location.href='http://127.0.0.1:5000/Home'">Home</div>
+    <div class="nav-block" id="data" onclick="window.location.href='http://127.0.0.1:5000/DataViewer'">Data Viewer</div>
+    <div class="nav-block" id="ADpred" onclick="window.location.href='http://127.0.0.1:5000/ADPrediction'">About AD</div>
+    <div class="nav-block" id="PDpred" onclick="window.location.href='http://127.0.0.1:5000/PDPrediction'">About PD</div>
+</div>
+
+
+<div id="jumper">
+    <div class="jump-block" onclick="jump('intro')">简介</div>
+    <div class="jump-block" onclick="jump('def')">疾病定义</div>
+    <div class="jump-block" onclick="jump('clinical')">临床症状</div>
+    <div class="jump-block" onclick="jump('diagnose')">诊断方法</div>
+    <div class="jump-block" onclick="jump('medication')">药物与治疗</div>
+    <div class="jump-block" onclick="jump('related')">相关疾病</div>
+    <div class="jump-block" onclick="jump('pred-section')">疾病预测工具</div>
+</div>
+
+<div class="title">帕金森病简介与预测</div>
+
+<div style="text-align: center;">
+    <img alt="" src="../static/img/PD-1.jpg" style="width: 30%">
+</div>
+
+<div class="text">
+    <div class="pic-label">帕金森病患者曲姿走路的照片，摄于1892年</div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="intro">疾病介绍</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帕金森病（Parkinson's disease，PD）属于一组被称为运动系统疾病的疾病，它导致身体的非预期或不可控运动。帕金森病的确切病因尚不清楚，但有些病例是遗传性的，而其他病例则被认为是由遗传和环境因素共同引发的疾病。在帕金森病中，大脑中产生多巴胺的部分的脑细胞受损或死亡，多巴胺是产生平稳、有目的的运动所需的化学物质。PD通常影响70岁左右的人，但也可能更早发生，它对男性的影响大于女性，目前还没有诊断散发性PD的具体测试。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PD的四个主要症状是：<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）震颤（tremor）--具有特征性的有节奏的前后运动的颤抖<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）僵硬（rigidity）--肌肉僵硬或对运动有抵触，肌肉持续紧张和收缩<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）运动迟缓（bradykinesia）--自发的和自动的运动变慢，这可能使人难以完成简单的任务或迅速完成常规动作。<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）姿势不稳（postural instability）--平衡受损和姿势改变，可增加跌倒的风险。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他症状可能包括吞咽、咀嚼或说话困难；情绪变化；排尿问题或便秘；痴呆或其他认知问题；疲劳；和睡眠问题。<br>
+    </p>
+    <div class="reference"><a href="https://www.ninds.nih.gov/health-information/disorders/parkinsons-disease" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="def">疾病定义</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该疾病是一种突触性神经病，具有中枢神经系统的变性，常常损害运动技能、语言和其他功能。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A synucleinopathy that has_material_basis_in degeneration of the central nervous system that often impairs motor skills, speech, and other functions.<br>
+    </p>
+    <div class="reference"><a href="https://disease-ontology.org/?id=DOID:14330" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="clinical">临床症状</span>
+    <p>
+        神经系统的中枢神经系统（Neurologic Central Nervous System）：构音障碍（dysarthria）、肌张力障碍（dystonia）、僵硬（rigidity）、体位不稳（postural instability）、帕金森症（parkinsonism）等。<br>
+        泌尿生殖系统与膀胱（Genitourinary Bladder）：尿急（urinary urgency）<br>
+        头和颈面部（Head And Neck Face）：掩饰性面容（masked facies）<br>
+        腹部、胃肠道（Abdomen Gastrointestinal）：吞咽困难（dysphagia）、便秘（constipation）<br>
+        神经系统行为精神表现（Neurologic Behavioral Psychiatric Manifestations）：抑郁症（depression）<br>
+        头和颈鼻（Head And Neck Nose）：嗅觉减退（decreased sense of smell）<br>
+    </p>
+    <div class="reference"><a href="https://omim.org/clinicalSynopsis/168600" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="diagnose">诊断方法</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帕金森病的诊断仰赖病史和神经学检查，目前没有检验方法能有效确认帕金森病，但脑部造影有时能排除其他症状相似的疾病。患者服用L-多巴后运动症状的改善能帮助医师确认病患罹患的确实是帕金森病。验尸时若能在中脑找到路易氏体，则能证明该患者生前罹患帕金森病。随着病程进展，有时疾病自然会出现不是帕金森病的症状，医师便能排除帕金森病的可能，因此一些权威指引建议医师必须定期重新检视帕金森病病患的诊断结果。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他一些疾病可能会间接造成帕金森综合征，包括阿兹海默症、多重大脑梗死和药物诱导。帕金森附加综合征（如进行性上眼神经核麻痹和多重系统退化）则必须透过鉴别诊断排除。抗帕金森药物对帕金森附加综合征通常较无效，若患者有病程较快、早期认知困难、姿态不稳、轻度颤抖或两侧同时产生症状，代表他可能罹患帕金森附加综合征，而非单纯的帕金森病。遗传性的帕金森综合征通常会归类为帕金森病，但家族性帕金森病和家族性帕金森综合征这两个词汇都能用来表示此类疾患。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;医学机构订定了帕金森病的诊断条件，以将此流程简化和标准化，这在疾病早期尤其有用。其中最广为人知的为英国帕金森病协会的大脑银行和和美国国家神经疾病及中风研究中心。大脑银行定义动作迟缓为帕金森病患者的诊断要件，且同时要有肢体僵硬、静止性颤抖或姿态不稳中至少其中一种症状，并排除其他疾病的可能；随着病程进展，患者的症状还必须有下列特色：包括由单侧发作、静止性颤抖、疾病随时间进展、运动症状不对称、至少五年内对L-多巴治疗有反应、临床病程至少十年、服用过多L-多巴后会造成运动困难等。根据病理解剖的评估，上述诊断条件的准确性约75－90%，神经内科医师等专家做出的诊断则有更高的准确率。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帕金森病患者脑部的计算机断层成像（CT）和核磁共振成像（MRI）常看起来与正常者无异，但这些技术能用来排除其他可能造成帕金森综合征的间接原因，例如基底核肿瘤、血管病变和脑水肿。有报告指出扩散磁振造影（一种核磁共振成像技术）有助于辨别典型和非典型帕金森综合征，但其确切的诊断力仍在研究中。基底核的多巴胺功能可以透过正子发射计算机断层成像（PET）和单光子发射计算机断层成像（SPECT）等放射显影技术量测，例如SPECT所使用的碘氟潘（碘-123）（商品名DaTSCAN）和碘苯托烷（Dopascan），以及PET所使用的氟代脱氧葡萄糖和DTBZ。基底核的多巴胺活性降低也能协助诊断帕金森病。<br>
+    </p>
+    <div class="reference"><a href="https://zh.wikipedia.org/wiki/帕金森氏症" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="medication">药物与治疗</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前没有治愈PD的方法，但各种药物可以极大地缓解症状。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通常情况下，受影响的人被给予levodopa与carbidopa的组合。carbidopa推迟了levodopa转化为多巴胺的过程，直到它到达大脑。神经细胞可以利用levodopa制造多巴胺并补充大脑不断减少的供应。尽管左旋多巴对大多数PD患者有帮助，但并非每个人对该药物的反应都一样。运动迟缓和僵硬的反应最好，而震颤可能仅有少量减少，平衡问题和其他症状可能根本没有得到缓解。抗胆碱能药物可能有助于控制震颤和僵直。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他药物如pramipexole、apomorphine和ropinirole模仿大脑中多巴胺的作用，使神经细胞像对多巴胺一样作出反应；一种抗病毒药物amantadine似乎也能减轻症状。 Safinamide、istradefylline和opicapone是对目前正在服用levodopa/carbidopa的PD患者的附加治疗，这些人的药物效果不好，导致PD症状增加。其他治疗PD的药物包括COMT抑制剂，它通过防止多巴胺的分解来延长levodopa的作用，以及MAO-B抑制剂阻止或减少大脑中分解多巴胺的MAO-B酶的活性。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在某些情况下，如果疾病对药物没有反应，手术可能是合适的。一种选择是脑深部刺激（DBS），将电极植入大脑，并与一个称为脉冲发生器的小型电气设备相连，以无痛方式刺激大脑，阻断导致PD许多运动症状的信号。DBS通常适用于对levodopa有反应的PD患者，他们在接受药物治疗后仍出现运动障碍或其他症状。然而，DBS并不能阻止PD的发展，一些问题仍然可能逐渐恢复。<br>
+    </p>
+    <div class="reference"><a href="https://www.ninds.nih.gov/health-information/disorders/parkinsons-disease" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="related">相关疾病</span>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;与帕金森病相关的20大疾病网络：
+        <div class="text">
+            <img align="center" src="../static/img/PD-2.jpg" class="pic">
+            <div class="pic-label">疾病网络示意图</div>
+        </div>
+    </p>
+    <div class="reference"><a href="https://www.malacards.org/card/parkinson_disease_late_onset" target="_blank">资料来源</a></div>
+</div>
+
+<div class="text">
+    <span class="subtitle" id="pred-section">疾病预测</span>
+    <div id="pred-box">
+        {% if model and model != '- Select Model'%}
+            <p>模型选择：<span style="font-weight: bolder; font-size: 20px">{{ model }}</span></p>
+        {% else %}
+        {% endif %}
+        {% if result %}
+
+            <p>预测结果：
+                {% if result == '低风险患病' %}
+                    <span style="font-weight: bolder; font-size: 20px;color: forestgreen">{{ result }}</span>
+                {% else %}
+                    <span style="font-weight: bolder; font-size: 20px; color: crimson">{{ result }}</span>
+                {% endif %}
+            </p>
+        {% else %}
+        {% endif %}
+        <form method="post" action="PDPrediction">
+            <label class="input-label">选择要使用的预测模型：</label>
+            <select id="model" class="usr-input" style="height: 25px" name="model-selection">65
+                <option disabled selected>- Select Model</option>
+                {% for op in models %}
+                    <option value="{{ op }}">{{ op }}</option>
+                {% endfor %}
+            </select><br>
+            请在下框中输入20维音频参数，注意用逗号分隔<br>
+            <div style="text-align: left;padding: 1% 20% 0% 20%">
+                <label class="input-label" >音频参数：</label>
+            </div>
+            <textarea name="param1" class="usr-input" style="height: 5rem; width:60%;">{{ param1 }}</textarea><br>
+            <input type="submit" value="Predict" id="pred-button"/>
+
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var jump = function (location_id){
+        window.scrollTo(0, document.getElementById(location_id).offsetTop-document.getElementById("nav").scrollHeight)
+    }
+    if ("{{result}}")
+        jump("pred-section")
+</script>
