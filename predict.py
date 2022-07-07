@@ -1,7 +1,7 @@
 import joblib
 import numpy as np
 
-model_path = "PredModel/"
+model_path = '/'.join(str(__file__).split('/')[:-1]) + "/PredModel/"
 PD_model_dict = {
         "Decision Tree": "Tree-PD.pkl",
         "Random Forest": "Forest-PD.pkl"
@@ -14,6 +14,7 @@ AD_model_dict = {
 
 
 def PD_predicit(model_type, params):
+    print(__file__)
     model = joblib.load(model_path+PD_model_dict[model_type])
     input_vec = np.array(params['param1'].split(','), dtype=np.float).reshape((1, -1))
     result = model.predict(input_vec).item()
