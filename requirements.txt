@@ -1,3 +1,4 @@
 joblib==1.0.1
 flask==1.0.2
 Pymysql==1.0.2
+sklearn==1.1.1

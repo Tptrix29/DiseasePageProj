@@ -19,11 +19,11 @@
     <div class="text">
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目通过研究相关神经退行性疾病数据，旨在构建预测分类模型，用户可以通过提交相关数据来预测自己是否患有相关疾病。项目预测疾病共有两个，分别是帕金森病与阿尔茨海默症。
-            <br><strong>阿尔茨海默症预测：</strong>
+            <br><br><strong>阿尔茨海默症预测：</strong>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阿尔茨海默病（AD）是一种起病隐匿的进行性发展的神经系统退行性疾病。临床上以记忆障碍、失语、失用、失认、视空间技能损害、执行功能障碍以及人格和行为改变等全面性痴呆表现为特征，病因迄今未明。65岁以前发病者，称早老性痴呆；65岁以后发病者称老年性痴呆。
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;研究显示，年龄、受教育程度、精神状态评估等特征参数可用来预测一个人是否患有阿尔兹海默症，以及其患病程度。关于AD预测的训练数据集来自于项目“开放获取成像研究系列”(Open Access Series of Imaging Studies, OASIS)，是由Kaggle托管的整理后OASIS-2数据集，其包含了患者年龄、性别、受教育程度等。
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这里，我们采用了随机森林、Adaboost、决策树、logistic regression等方法建立了多个预测模型，这些模型在测试集上的准确率均高于80%，其分析结果是值得信赖的结果。用户可以输入自身的相关特征来使用改模型预测自己是否患有阿尔茨海默症。
-
+            <br>
             <br><strong>帕金森病预测：</strong>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有研究证明帕金森病可以通过语音检测出来。发声是语音中受影响最大的部分，即人体发元音时发出的声音。在构建模型的时候我们采用了来自牛津大学的帕金森患者与健康人的音频数据集，在收集这个数据集的过程中，实验对象被要求分别只说三个持续元音“a”和“o”。
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这些音频信号由专门的音频处理软件处理，提取出音频的特征参数，包括有平均基频、最高基频、最低基频、绝对基频微扰、振幅微扰、嗓音突变等。基于此数据集，我们采用了决策树和随机森林等方法构建了用于预测帕金森疾病的模型，此模型在测试集上的准确率达到了80%以上。用户可以输入自身的音频特征参数来预测自身是否患有帕金森病。
@@ -41,38 +41,65 @@
     <div class="text">
         <table class="content">
             <tr><th>模型方法(Method)</th><th>准确率(Accurancy)</th><th>精确率(Precision)</th><th>召回率(Recall)</th></tr>
-            <tr><td><strong>AdaBoost</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
-            <tr><td><strong>Logistic Regression</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
-            <tr><td><strong>SVM</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
-            <tr><td><strong>Decision Tree</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
-            <tr><td><strong>Random Forest</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
-        </table>
+            <tr><td><strong>AdaBoost</strong></td><td>82.8%</td><td>83.0%</td><td>93.3%</td></tr>
+            <tr><td><strong>Logistic Regression</strong></td><td>80.6%</td><td>72.7%</td><td>94.1%</td></tr>
+            <tr><td><strong>SVM</strong></td><td>81.5%</td><td>82.2%</td><td>93.3%</td></tr>
+            <tr><td><strong>Decision Tree</strong></td><td>84.8%</td><td>86.1%</td><td>83.8%</td></tr>
+            <tr><td><strong>Random Forest</strong></td><td>86.3%</td><td>84.9%</td><td>89.1%</td></tr>
+        </table><br>
         <p>
             <strong>AdaBoost </strong>For AD<br>
-            <ul>
-                <li>数据预处理</li>
-                <li>模型训练</li>
-            </ul>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 数据预处理<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)每个受试者接受不同次数的visit，我们选取第一次visit的数据进行分析；
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)	将性别F/M值转换为0/1值；
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)	将“已转化”类别替代为“痴呆”，将“痴呆”和“非痴呆”值转换为0/1值；
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)	检查发现SES列有8个缺失值，删去缺失值；
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)	数据划分：用train_test_split函数，从样本中随机的按比例选取train_data和test_data
+                    用scaler函数将数据标准化；
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)	使用MinMaxScaler()函数对数据进行归一化。
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 模型介绍<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;模型使用Adaboost算法，Adaboost是一种迭代算法，其核心思想是针对同一个训练集训练不同的分类器（弱分类器），然后把这些弱分类器集合起来，构成一个更强的最终分类器（强分类器）。<br>
+            <br>
             <strong>Logistic Regression </strong>For AD<br>
-            <ul>
-                <li>数据预处理</li>
-                <li>模型训练</li>
-            </ul>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 数据预处理<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）数据预处理
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原始数据的特征有Subject ID（患者编号）、MVF（性别，M为男，F为女）、Visit（访问次数）、Hand（惯用手，R为右手，L为左手）、Age（年龄）、Educ（受教育程度，越高代表程度越高）、SES（患者的社会经济地位，越高代表地位越高）、MMSE（精神状态测试得分）、CDR（临床阿尔兹海默症病情状态）、eTIV（预估的脑容量/总颅内容积）、nWBV（标准化后的脑容量/总颅内容积）、ASF（Atlas缩放系数）、Delay（延迟）以及Group（是否患病）。
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于每个人的惯用手都是右手，我们删除Hand特征；只取首次访问的数据（即Visit = 1）并删除该特征；删除MRI ID这一与疾病诊断无关的特征。然后我们将MVF和Group这两个特征用0，1表示，分别是1为男性，0为女性；1为Demented和Converted，0为Nondemented。
+
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）缺失值处理
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于SES特征中包含8个缺失值，我们比较了两种候选的处理方法：删除含有缺失值的行，或者对缺失值进行填充。考虑到社会经济地位可能与受教育程度有关，这里选择将数据按Educ进行分组，取每组的中值来填充SES中的缺失值。最终选择删除含有缺失值的行来处理缺失值。
+
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）one-hot编码
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;one hot encode为独热编码，又称一位有效编码，其方法是使用N位状态寄存器来对N个状态进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。对于每一个特征，如果它有m个可能值，那么编码后就变成了m个二元特征，并且特征互斥，每次只有一个激活，因此数据会变成稀疏的。这样做的好处主要有：解决了分类器不好处理属性数据的问题；在一定程度上也起到了扩充特征的作用。
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原始数据中SES的取值为[1,2,3,4]，CDR的取值为[0,0.5,1]，可以发现SES和CDR两个特征为属性数据，因此这里进行了one-hot编码处理，使用了pandas提供one-hot编码函数pd.get_dummies()。
+
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 模型介绍<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）归一化函数
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在训练前使用sklearn包中MinMaxScaler()函数将数据归一化到一定区间，这里取默认值[0,1]。
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）逻辑回归
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;逻辑回归（Logistic Regression）是用于二分类的经典模型，它的本质是假设数据服从这个分布，然后使用极大似然估计做参数的估计。
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次主要使用Python中的机器学习工具Scikit-Learn来建立。最初的模型采用类linear_model.LogisticRegression，这是最基本的逻辑回归分类器。在超参数的选择上，正则化方式选择默认值L2，正则化强度相关的超参数c则是通过5折交叉验证来确定，再进行重新建模。训练集和测试集划分比例采用train_test_split()默认值0.25。每个模型都计算验证集上的准确性（accuracy），测试集上的准确性、召回率（recall）和AUC值。
+            <br><br>
             <strong>SVM </strong>For AD<br>
-            <ul>
-                <li>数据预处理</li>
-                <li>模型训练</li>
-            </ul>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支持向量机（Support Vector Machine, SVM）是一类按监督学习（supervised learning）方式对数据进行二元分类的广义线性分类器（generalized linear classifier），其决策边界是对学习样本求解的最大边距超平面（maximum-margin hyperplane）。
+            SVM使用铰链损失函数（hinge loss）计算经验风险（empirical risk）并在求解系统中加入了正则化项以优化结构风险（structural risk），是一个具有稀疏性和稳健性的分类器。SVM可以通过核方法（kernel method）进行非线性分类，是常见的核学习（kernel learning）方法之一。
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 稳健性与稀疏性<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SVM的优化问题同时考虑了经验风险和结构风险最小化，因此具有稳定性。从几何观点，SVM的稳定性体现在其构建超平面决策边界时要求边距最大，因此间隔边界之间有充裕的空间包容测试样本。SVM使用铰链损失函数作为代理损失，铰链损失函数的取值特点使SVM具有稀疏性，即其决策边界仅由支持向量决定，其余的样本点不参与经验风险最小化。在使用核方法的非线性学习中，SVM的稳健性和稀疏性在确保了可靠求解结果的同时降低了核矩阵的计算量和内存开销。
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 与其它线性分类器的关系<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SVM是一个广义线性分类器，通过在SVM的算法框架下修改损失函数和优化问题可以得到其它类型的线性分类器，如将SVM的损失函数替换为logistic损失函数就得到了接近于logistic回归的优化问题。SVM和logistic回归是功能相近的分类器，二者的区别在于logistic回归的输出具有概率意义，也容易扩展至多分类问题，而SVM的稀疏性和稳定性使其具有良好的泛化能力并在使用核方法时计算量更小。
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 作为核方法的性质<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SVM不是唯一可以使用核技巧的机器学习算法，logistic回归、岭回归和线性判别分析（Linear DiscriminantAnalysis, LDA）也可通过核方法得到核logistic回归（kernel logistic regression）、核岭回归（kernel ridge regression）和核线性判别分析（Kernelized LDA, KLDA）方法。因此SVM是广义上核学习的实现之一。
+            <br><br>
             <strong>Decision Tree </strong>For PD<br>
-            <ul>
-                <li>数据预处理</li>
-                <li>模型训练</li>
-            </ul>
-            <strong>Random Forest </strong>For PD<br>
-            <ul>
-                <li>数据预处理</li>
-                <li>模型训练</li>
-            </ul>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;决策树是一种常用的树状分类器，在决策树的每个节点通过选择最佳的数据特征不停进行分类，直到达到建树的停止条件，比如叶节点里的数据都是同一类型、所有的特征被使用完毕、节点的数据量小于指定的数据量等。当输入待分类样本到训练好的决策树模型时，决策树会根据待分类样本的特征确定一条由根节点到叶节点的唯一路径，该路径叶节点的输出类型就是待分类样本的所属类别。目前构建决策树常用的方法有ID3、C4.5、CART等，这些方法构建决策树的主要区别在于节点处特征选取的标准不同：ID3决策树算法是基于信息论的信息增益，C4.5决策树算法基于信息增益率而CART决策树算法则是根据Gini不纯度指数。决策树是一种有监督的、简单快速的非参数分类方法，准确率较高，但是目前研究的数据多是大数据，一般分裂属性较多过于复杂、存在较多低质量或冗余数据，决策树可能会出现结构臃肿、过拟合导致准确率下降、需要的计算资源增加等问题。<br>
+            <br><strong>Random Forest </strong>For PD<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随机森林是由很多没有关联的决策树构成，进行分类任务时，新的输入样本通过森林中的每一棵决策树分别进行判断和分类得到一个自己的分类结果，出现概率最大的结果即为随机森林的结果，由于随机森林构建过程中多次随机选取样本数据构建互不相关的决策树，这样就可以避免异常值带来的误差；此外，在节点处，随机森林随机选取数目远小于样本特征总数的部分特征进行建树，很大程度上避免了过拟合的问题，而且还消除评价方法（如ID3、C4.5等）带来的误差，也能够更好地确定属性间的关联性。相较于决策树，随机森林以增大计算量、降低计算速度的代价提高准确性和简化分类结构，对于数据量大、属性多且属性之间可能存在某些关联等的医学数据来讲是一种更佳的模型。<br>
+            <br>
         </p>
     </div>
 
