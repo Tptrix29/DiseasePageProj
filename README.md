@@ -1,6 +1,11 @@
 ### 网页内容
 
-共**4**个主要页面，分别为主页(`Home`)、数据展示页(`DataViewer`)、阿尔兹海默症预测页(`ADPrediction`)、帕金森病预测页(`PDPrediction`)。
+共**4**个主要页面，分别为:
+
+- 主页(`Home`)：项目与模型介绍
+- 数据展示页(`DataViewer`)：数据集介绍
+- 阿尔兹海默症预测页(`ADPrediction`)：阿尔兹海默症介绍与风险预测工具
+- 帕金森病预测页(`PDPrediction`)：帕金森病介绍与风险预测工具
 
 ### 配置教程
 
@@ -34,7 +39,10 @@
 
    在本地安装数据库管理系统MySQL，并配置MySQL命令添加至环境变量
 
-   [安装教程](https://blog.csdn.net/qq_59636442/article/details/123058454)
+   - [Windows安装配置教程](https://blog.csdn.net/qq_59636442/article/details/123058454)
+
+   - [Mac安装配置教程](https://www.jianshu.com/p/a9ed0e783aab)
+   - [Linux(CentOS)安装配置教程](https://blog.csdn.net/xhmico/article/details/125197747)
 
 2. 建立数据库
 
@@ -45,7 +53,7 @@
    git clone DiseasePageProj
    cd DiseasePageProj
    # 本地文件只需要进入目录，即 cd DiseasePageProj
-   python db_create.py
+   python3 create_db.py
    ```
 
    复制生成的建库语句到MySQL终端：
@@ -69,7 +77,7 @@
    MySQL终端输入：
 
    ```sql
-   select * from PDAdioPred limit 3;
+   select * from PDAudioPred limit 3;
    ```
 
    输出3行数据，则数据成功导入。
