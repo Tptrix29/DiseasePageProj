@@ -30,7 +30,7 @@
 
    在本地安装数据库管理系统MySQL，并配置MySQL命令添加至环境变量
 
-   (安装教程)[https://blog.csdn.net/qq_59636442/article/details/123058454]
+   [安装教程](https://blog.csdn.net/qq_59636442/article/details/123058454)
 
 2. 建立数据库
 
