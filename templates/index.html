@@ -19,7 +19,6 @@
     <div class="text">
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目通过研究相关神经退行性疾病数据，旨在构建预测分类模型，用户可以通过提交相关数据来预测自己是否患有相关疾病。项目预测疾病共有两个，分别是帕金森病与阿尔茨海默症。
-
             <br><strong>阿尔茨海默症预测：</strong>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阿尔茨海默病（AD）是一种起病隐匿的进行性发展的神经系统退行性疾病。临床上以记忆障碍、失语、失用、失认、视空间技能损害、执行功能障碍以及人格和行为改变等全面性痴呆表现为特征，病因迄今未明。65岁以前发病者，称早老性痴呆；65岁以后发病者称老年性痴呆。
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;研究显示，年龄、受教育程度、精神状态评估等特征参数可用来预测一个人是否患有阿尔兹海默症，以及其患病程度。关于AD预测的训练数据集来自于项目“开放获取成像研究系列”(Open Access Series of Imaging Studies, OASIS)，是由Kaggle托管的整理后OASIS-2数据集，其包含了患者年龄、性别、受教育程度等。
@@ -28,7 +27,7 @@
             <br><strong>帕金森病预测：</strong>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有研究证明帕金森病可以通过语音检测出来。发声是语音中受影响最大的部分，即人体发元音时发出的声音。在构建模型的时候我们采用了来自牛津大学的帕金森患者与健康人的音频数据集，在收集这个数据集的过程中，实验对象被要求分别只说三个持续元音“a”和“o”。
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这些音频信号由专门的音频处理软件处理，提取出音频的特征参数，包括有平均基频、最高基频、最低基频、绝对基频微扰、振幅微扰、嗓音突变等。基于此数据集，我们采用了决策树和随机森林等方法构建了用于预测帕金森疾病的模型，此模型在测试集上的准确率达到了80%以上。用户可以输入自身的音频特征参数来预测自身是否患有帕金森病。
-        </p>
+        </p><br>
     </div>
 
     <span class="subtitle">项目内容</span>
@@ -36,12 +35,44 @@
         <li class="text">数据展示</li>
         <li class="text">阿尔兹海默症预测</li>
         <li class="text">帕金森病预测（基于音频）</li>
-    </ol>
+    </ol><br>
 
     <span class="subtitle">模型介绍</span>
     <div class="text">
+        <table class="content">
+            <tr><th>模型方法(Method)</th><th>准确率(Accurancy)</th><th>精确率(Precision)</th><th>召回率(Recall)</th></tr>
+            <tr><td><strong>AdaBoost</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
+            <tr><td><strong>Logistic Regression</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
+            <tr><td><strong>SVM</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
+            <tr><td><strong>Decision Tree</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
+            <tr><td><strong>Random Forest</strong></td><td>AdaBoost</td><td>AdaBoost</td><td>AdaBoost</td></tr>
+        </table>
         <p>
-            
+            <strong>AdaBoost </strong>For AD<br>
+            <ul>
+                <li>数据预处理</li>
+                <li>模型训练</li>
+            </ul>
+            <strong>Logistic Regression </strong>For AD<br>
+            <ul>
+                <li>数据预处理</li>
+                <li>模型训练</li>
+            </ul>
+            <strong>SVM </strong>For AD<br>
+            <ul>
+                <li>数据预处理</li>
+                <li>模型训练</li>
+            </ul>
+            <strong>Decision Tree </strong>For PD<br>
+            <ul>
+                <li>数据预处理</li>
+                <li>模型训练</li>
+            </ul>
+            <strong>Random Forest </strong>For PD<br>
+            <ul>
+                <li>数据预处理</li>
+                <li>模型训练</li>
+            </ul>
         </p>
     </div>
 
