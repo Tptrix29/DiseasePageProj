@@ -43,9 +43,9 @@
    复制生成的建库语句到MySQL终端：
 
    ```sql
-   source /Users/tianpei/PycharmProjects/ND/DB_SQL/Init.sql;
-   source /Users/tianpei/PycharmProjects/ND/DB_SQL/AD.sql;
-   source /Users/tianpei/PycharmProjects/ND/DB_SQL/PD.sql;
+   source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/Init.sql;
+   source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/AD.sql;
+   source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/PD.sql;
    SELECT COUNT(*) FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'NeuorDisease';
    ```
 

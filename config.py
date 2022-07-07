@@ -2,7 +2,7 @@
 DB_CONFIG = {
     'DB_USER': 'root',
     'DB_IP':  'localhost',
-    'DB_PORT': '3306',
+    'DB_PORT': 3306,
     'DB_PASSWD': 'TpZl7530'
 }
 
