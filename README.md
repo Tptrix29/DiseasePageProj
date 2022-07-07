@@ -65,6 +65,7 @@
    复制生成的建库语句到MySQL终端：
 
    ```sql
+   -- 示例如下
    source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/Init.sql;
    source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/AD.sql;
    source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/PD.sql;
