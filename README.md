@@ -21,13 +21,14 @@
 
 第三方库：
 
-- joblib==1.0.1
-- **Flask**==1.0.2
+
+- **flask**==1.0.2
 - pymysql==1.0.2
 
-##### 模型训练
+##### 模型训练与调用
 
 - sklearn==1.1.1
+- joblib==1.0.1
 
 #### 测试日志
 
@@ -65,7 +66,7 @@
    复制生成的建库语句到MySQL终端：
 
    ```sql
-   -- 示例如下
+   -- 示例
    source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/Init.sql;
    source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/AD.sql;
    source /Users/tianpei/PycharmProjects/DiseasePageProj/DB_SQL/PD.sql;
