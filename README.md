@@ -7,6 +7,13 @@
 - 阿尔兹海默症预测页(`ADPrediction`)：阿尔兹海默症介绍与风险预测工具
 - 帕金森病预测页(`PDPrediction`)：帕金森病介绍与风险预测工具
 
+### 测试日志
+
+**开发环境**：Mac OS Monterey 12.4 
+
+**运行成功的环境**：Windows 10 64位 , Mac OS Monterey 12.4 
+
+
 ### 配置教程
 
 #### 环境需求
@@ -29,16 +36,6 @@
 
 - sklearn==1.1.1
 - joblib==1.0.1
-
-#### 测试日志
-
-**开发环境**：Mac OS Monterey 12.4 
-
-**运行成功的环境**：Windows 10 64位 , Mac OS Monterey 12.4 
-
-
-
-
 
 
 #### 后端数据库搭建
