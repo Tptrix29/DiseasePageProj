@@ -34,7 +34,8 @@
 
 **开发环境**：Mac OS Monterey 12.4 
 
-**运行成功的环境**：Windows 10 64位 ( 4.09.00.0904 )
+**运行成功的环境**：Windows 10 64位 , Mac OS Monterey 12.4 
+
 
 
 
